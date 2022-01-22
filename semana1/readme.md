@@ -1,2 +1,2 @@
-###Ejercicios realizados en semana 1
+## Ejercicios realizados en semana 1
 
