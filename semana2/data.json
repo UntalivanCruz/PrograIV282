@@ -1,0 +1,32 @@
+[
+    {
+        "marca": "BMW",
+        "color": "verde",
+        "year": 2010
+    },
+    {
+        "marca": "Jeep",
+        "color": "azul",
+        "year": 2005
+    },
+    {
+        "marca": "Chevrolet",
+        "color": "rojo",
+        "year": 2019
+    },
+    {
+        "marca": "Nissan",
+        "color": "azul",
+        "year": 2011
+    },
+    {
+        "marca": "Toyota",
+        "color": "rojo",
+        "year": 2015
+    },
+    {
+        "marca": "Kia",
+        "color": "gris",
+        "year": 2022
+    }
+]
