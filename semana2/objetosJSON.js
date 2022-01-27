@@ -2,8 +2,11 @@ const fs = require('fs')
 var vehiculos = JSON.parse( fs.readFileSync('data.json') )
 
 //console.log(process.argv)
-const accion = process.argv.slice(2,7)
-console.log(accion)
+
+let [,,parametro1,parametro2] = process.argv
+const accion = parametro1.split('=')[1]
+const datos = parametro2.split('=')[1].split(',')
+console.log(datos)
 //Recorrer un arreglo de la forma tradicional
 /*for(let i=0;i<5;i++){
     console.log(`Vehiculo numero ${i+1}:${vehiculos[i].marca}`)
@@ -36,7 +39,8 @@ function eliminarVehiculo(itemAEliminar){
 
 switch(accion){
     case 'insertar':
-        agregarVehiculos(datos);
+        console.log('Insertar nuevos elementos')    
+    //agregarVehiculos(datos);
         break;
 }
 
