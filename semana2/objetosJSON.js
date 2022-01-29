@@ -1,8 +1,12 @@
 const fs = require('fs')
+const {argv} = require('yargs')
+const {agregarVehiculos, modificarVehiculos, eliminarVehiculo,consultarVehiculo} = require('./funciones/acciones') 
 var vehiculos = JSON.parse( fs.readFileSync('data.json') )
 
-//console.log(process.argv)
-
+const accion = argv.accion
+const datos = {'marca':argv.marca,'color':argv.color,'year':argv.year}
+const busqueda = argv.busqueda
+/*
 let [,,parametro1,parametro2] = process.argv
 const accion = parametro1.split('=')[1]
 const datos = parametro2.split('=')[1].split(',')
@@ -10,45 +14,30 @@ console.log(datos)
 //Recorrer un arreglo de la forma tradicional
 /*for(let i=0;i<5;i++){
     console.log(`Vehiculo numero ${i+1}:${vehiculos[i].marca}`)
-}*/
-
-//Recorrear arreglo usando la funcion foreach de tipo flecha
-function consultarVehiculo(){
-    vehiculos.forEach( item => console.log(item) );
 }
-//Agregar datos al arreglo
-
-function agregarVehiculos(item){
-    vehiculos.push(
-        //{'marca':'Kia','color':'gris','year':2022}
-        item
-        )
-}
-
-var obtenerIndice=(item)=>vehiculos.findIndex((vehiculo)=>vehiculo.marca===item)
-
-function modificarVehiculos(itemABuscar,itemNuevo){
-    indice = obtenerIndice(itemABuscar)
-    vehiculos[indice] = itemNuevo
-}
-
-function eliminarVehiculo(itemAEliminar){
-    indice = obtenerIndice(itemAEliminar)
-    vehiculos.splice(indice,1)
-}
-
+*/
 switch(accion){
     case 'insertar':
-        console.log('Insertar nuevos elementos')    
-    //agregarVehiculos(datos);
+        agregarVehiculos(datos)
+        console.log('Vehculo agregado con exito')
         break;
+    case 'modificar':
+        modificarVehiculos(busqueda,datos)
+        break;
+    case 'eliminar':
+        eliminarVehiculo(busqueda)
+        break;
+    case 'mostrar':
+        consultarVehiculo()
+        break;
+    default:
+        console.error('Accion no valida')
 }
 
 /*
 agregarVehiculos({'marca':'Prueba1','color':'verde','year':2000})
 modificarVehiculos('Jeep', {'marca':'Prueba2','color':'azul','year':2004})
 eliminarVehiculo('Toyota')
-//SALVAR ARCHIVO
-console.log(vehiculos)
-fs.writeFileSync('data.json',JSON.stringify(vehiculos))
 */
+//SALVAR ARCHIVO
+fs.writeFileSync('data.json',JSON.stringify(vehiculos))
