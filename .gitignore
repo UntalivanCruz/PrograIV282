@@ -1,1 +1,3 @@
-semana2/node_modules/*
+semana2/node_modules
+semana3/http/node_modules
+semana3/express/node_modules
