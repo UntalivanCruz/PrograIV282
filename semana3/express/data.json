@@ -1,0 +1,18 @@
+[
+    {
+        "marca": "Nissan"
+    },
+    {
+        "marca": "Toyota"
+    },
+    {
+        "marca": "toyota",
+        "color": "verde",
+        "year": 2005
+    },
+    {
+        "marca": "Jepp",
+        "color": "azul",
+        "year": 2006
+    }
+]
